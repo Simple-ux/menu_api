@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, ForeignKey, Integer, Table, String, update
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy import Column, ForeignKey, Integer,  String, update
+from sqlalchemy.orm import sessionmaker
 
 
 SQLALCHEMY_DATABASE_URL = "postgresql://postgres:feropulo@localhost:5432/menus"
