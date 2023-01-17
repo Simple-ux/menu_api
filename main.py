@@ -20,7 +20,6 @@ async def submenus_count():
             "dishes_count": await dishes_count_menu(item.id)},
             synchronize_session = False)
         
-
     session.commit()
 
 # Все меню
@@ -195,8 +194,9 @@ async def create_dish(api_menu_id:int, api_submenu_id:int):
 @app.patch('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}/dishes/{api_dish_id}')
 async def patch_dish(api_menu_id: int, api_submenu_id:int, api_dish_id:int, response: Response):
 
-    dish_response = session.query(Dishes).filter(Dishes.id == api_dish_id, Dishes.submenu_id == api_submenu_id).update({"title":"patched dish"}, synchronize_session = False)
-    
+    dish_response = session.query(Dishes).filter(Dishes.id == api_dish_id, Dishes.submenu_id == api_submenu_id).update(
+        {"title":"patched dish"}, synchronize_session = False)
+
     if dish_response == 1:
         session.commit()
     else:
