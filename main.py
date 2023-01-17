@@ -22,6 +22,7 @@ async def submenus_count():
         
     session.commit()
 
+
 # Все меню
 @app.get('/api/v1/menus')
 async def get_all_menu():
@@ -32,7 +33,7 @@ async def get_all_menu():
 
 
 
-# Одном меню
+# Одно меню
 @app.get('/api/v1/menus/{api_menu_id}')
 async def get_one_menu(api_menu_id: int, response: Response):
     
@@ -41,6 +42,7 @@ async def get_one_menu(api_menu_id: int, response: Response):
         response.status_code = 404
         return response
     return menu_response
+
 
 # Создать меню
 @app.post('/api/v1/menus', status_code=201)
@@ -51,6 +53,7 @@ async def create_menu():
     session.commit()
     
     return "Complite!"
+
 
 # Обновить меню
 @app.patch('/api/v1/menus/{api_menu_id}')
@@ -65,6 +68,7 @@ async def patch_menu(api_menu_id: int, response: Response):
         return response
 
     return "Complete"
+
 
 # Удалить меню
 @app.delete('/api/v1/menus/{api_menu_id}')
@@ -94,6 +98,7 @@ async def dishes_count_submenu():
     session.commit()
     return submenu_response
 
+
 # кол-во блюд в одном меню
 async def dishes_count_menu(api_menu_id):
 
@@ -113,12 +118,14 @@ async def get_all_submenu(api_menu_id:int):
     submenu_response = session.query(SubMenu).filter(SubMenu.menu_id == api_menu_id).all()
     return submenu_response
 
+
 # Одно подменю
 @app.get('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}')
 async def get_all_submenu(api_menu_id:int, api_submenu_id:int):
 
     submenu_response = session.query(SubMenu).filter(SubMenu.id == api_submenu_id, SubMenu.menu_id == api_menu_id).one()
     return submenu_response
+
 
 # Создать подменю
 @app.post('/api/v1/menus/{api_menu_id}/submenus')
@@ -165,6 +172,7 @@ async def get_all_dishes(api_submenu_id:int):
     dishes_response = session.query(Dishes).filter(Dishes.submenu_id == api_submenu_id).all()
     return dishes_response
 
+
 # Одно блюдо
 @app.get('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}/dishes/{api_dish_id}')
 async def get_one_dish(api_menu_id:int, api_submenu_id:int, api_dish_id:int, response: Response):
@@ -181,6 +189,7 @@ async def get_one_dish(api_menu_id:int, api_submenu_id:int, api_dish_id:int, res
 
     return submenu_response
 
+
 # Создать блюдо
 @app.post('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}/dishes')
 async def create_dish(api_menu_id:int, api_submenu_id:int):
@@ -189,6 +198,7 @@ async def create_dish(api_menu_id:int, api_submenu_id:int):
     session.add(new_dish)
     session.commit()
     return "Complite!"
+
 
 # Обновить блюдо
 @app.patch('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}/dishes/{api_dish_id}')
@@ -204,6 +214,7 @@ async def patch_dish(api_menu_id: int, api_submenu_id:int, api_dish_id:int, resp
         return response
 
     return "Complete"
+
 
 # Удалить подменю
 @app.delete('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}/dishes/{api_dish_id}')
