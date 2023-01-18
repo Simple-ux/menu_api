@@ -35,7 +35,7 @@ async def get_all_menu():
 
 # Одно меню
 @app.get('/api/v1/menus/{api_menu_id}')
-async def get_one_menu(api_menu_id: int, response: Response):
+async def get_one_menu(api_menu_id:int, response: Response):
     
     menu_response = session.query(Menu).filter(Menu.id == api_menu_id).all()
     if menu_response == []:
@@ -216,7 +216,7 @@ async def patch_dish(api_menu_id: int, api_submenu_id:int, api_dish_id:int, resp
     return "Complete"
 
 
-# Удалить подменю
+# Удалить блюдо
 @app.delete('/api/v1/menus/{api_menu_id}/submenus/{api_submenu_id}/dishes/{api_dish_id}')
 async def delete_dish(api_submenu_id: int, api_dish_id:int, response: Response):
 
