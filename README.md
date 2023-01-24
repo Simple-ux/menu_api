@@ -1,6 +1,6 @@
 # menu_api
 
-CRUD операции по работе с меню
+CRUD operations to menu
 
 ### http://localhost:8000/menus/{num}/submenus/{num}/dishes/{num}
 
@@ -16,7 +16,7 @@ http://localhost:8000/menus/{num}/submenus/{num}/dishes/ - список блюд
 
 http://localhost:8000/menus/2/submenus/3/dishes/4 - блюдо 4, подменю 3, меню 2
 
-## Запуск
+## Launch
 ```shell
 uvicorn main:app --reload
 ```
