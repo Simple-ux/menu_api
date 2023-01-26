@@ -1,9 +1,9 @@
 # menu_api
 
 CRUD operations to menu
-
+```shell
 ### http://localhost:8000/menus/{num}/submenus/{num}/dishes/{num}
-
+```
 http://localhost:8000/menus - Menu list
 
 http://localhost:8000/menus/2 - menu id 2
