@@ -7,8 +7,8 @@ CRUD operations to menu
 uvicorn main:app --reload
 ```
 
-### http://localhost:8000/menus/{num}/submenus/{num}/dishes/{num}
 
+### urls
 Menu list
 ```shell
 http://localhost:8000/menus
