@@ -15,10 +15,10 @@ Menu list
 ```shell
 http://localhost:8000/menus
 ```
-menu id 2
-```shell
+(menu id 2)
+
 http://localhost:8000/menus/2
-```
+
 Submenu list
 ```shell
 http://localhost:8000/menus/{num}/submenus
