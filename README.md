@@ -2,6 +2,11 @@
 
 CRUD operations to menu
 
+## Launch
+```shell
+uvicorn main:app --reload
+```
+
 ### http://localhost:8000/menus/{num}/submenus/{num}/dishes/{num}
 
 Menu list
@@ -28,7 +33,4 @@ Dish 4, submenu id 3, menu 2
 ```shell
 http://localhost:8000/menus/2/submenus/3/dishes/4
 ```
-## Launch
-```shell
-uvicorn main:app --reload
-```
+
