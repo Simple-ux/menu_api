@@ -35,13 +35,17 @@ async def get_all_menu():
 
 # Одно меню
 @app.get('/api/v1/menus/{api_menu_id}')
-async def get_one_menu(api_menu_id:int, response: Response):
+async def get_one_menu(api_menu_id, response: Response):
     
-    menu_response = session.query(Menu).filter(Menu.id == api_menu_id).all()
-    if menu_response == []:
-        response.status_code = 404
-        return response
-    return menu_response
+    menu_response = {}
+    if api_menu_id != 'null':
+        menu_response = session.query(Menu).filter(Menu.id == api_menu_id).all()
+        return menu_response
+    else:
+        menu_response["id"] = None
+        menu_response["title"] = None
+        menu_response["description"] = None
+        return menu_response
 
 
 # Создать меню
