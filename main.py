@@ -1,9 +1,6 @@
 from fastapi import FastAPI, Response
 from database import *
 
-
-
-
 app = FastAPI()
 
 # CRUD MENU
