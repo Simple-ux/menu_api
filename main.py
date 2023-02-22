@@ -3,6 +3,7 @@ from database import *
 
 app = FastAPI()
 
+
 # CRUD MENU
 
 # кол-во субменю в одном меню
